@@ -1,8 +1,8 @@
 INSERT MANDATORY GIF
 
-# Project Title
+# Where's my stuff
 
-Text about the project and why it exists. This would also be a great place to link the project on One.com.
+A program to keep track of your stuff!
 
 # Installation
 

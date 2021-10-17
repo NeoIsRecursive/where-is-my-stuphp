@@ -13,13 +13,13 @@ function createTables(object $pdo): void
     $createTable = $pdo->exec(
         'CREATE TABLE IF NOT EXISTS items (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                name VARCHAR(30)
+                name VARCHAR
             );'
     );
     $createTable = $pdo->exec(
         'CREATE TABLE IF NOT EXISTS locations (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                name VARCHAR(30)
+                name VARCHAR
             );'
     );
     $createTable = $pdo->exec(
@@ -29,7 +29,6 @@ function createTables(object $pdo): void
             );'
     );
 }
-
 createTables($db);
 //select from table as associative
 // $query = $db->query('SELECT * FROM people');

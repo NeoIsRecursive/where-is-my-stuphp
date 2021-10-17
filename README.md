@@ -1,4 +1,4 @@
-INSERT MANDATORY GIF
+<img src="misc/fizzybubblech.gif">
 
 # Where's my stuff
 

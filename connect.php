@@ -37,14 +37,19 @@ function createTables(object $pdo): void
 //     echo $row['name'] . "<br>";
 // }
 
-function createItem(object $pdo, string $tblName, string $name): void
+function createItem(object $pdo, string $tblName, string $name): bool | array
 {
     $query = $pdo->prepare('INSERT INTO ' . $tblName . ' (name) VALUES (?)');
     try {
         $query->execute([$name]);
     } catch (PDOException $err) {
-        echo "this already exists! \n$err\n";
+        if ($err->errorInfo[0] == 23000) {
+            return false;
+        } else {
+            return $err->errorInfo;
+        }
     }
+    return true;
 }
 
 function addItemToLocation(object $pdo, int $item, int $location, int $amount)
@@ -71,16 +76,17 @@ function listAllWhere(object $pdo, int $limit = 0): array | bool
 }
 
 createTables($db);
-createItem($db, 'items', 'mjölk1');
+$hej = createItem($db, 'items', 'mjölk3');
+echo $hej == false ? "duplicate" : "succes";
 createItem($db, 'locations', 'låda1');
 addItemToLocation($db, 3, 1, 1);
 $items = listAllWhere($db);
-foreach ($items as $row) {
-    print_r($row);
-}
+// foreach ($items as $row) {
+//     print_r($row);
+// }
 
-if (array_search("test2", $items)) {
-    echo "already exists";
-} else {
-    echo "we add";
-}
+// if (array_search("test2", $items)) {
+//     echo "already exists";
+// } else {
+//     echo "we add";
+// }

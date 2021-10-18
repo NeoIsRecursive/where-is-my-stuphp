@@ -1,7 +1,5 @@
 <?php
 
-use function PHPSTORM_META\type;
-
 function getList(object $pdo, int $limit = 0): array | bool
 {
     $sql = 'SELECT items.name AS item , item_location.amount ,locations.name AS location

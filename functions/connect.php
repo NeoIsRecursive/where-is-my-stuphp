@@ -2,7 +2,7 @@
 
 // Create connection
 try {
-    $db = new PDO('sqlite:' . $dir . '/db/elephpant.db;charset=UTF-8');
+    $db = new PDO('sqlite:' . $dir . '/db/elephpant.db');
 } catch (Exception $err) {
     echo "could not find database\n$err";
 }

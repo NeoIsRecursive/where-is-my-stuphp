@@ -13,13 +13,13 @@ function createTables(object $pdo): void
     $createTable = $pdo->exec(
         'CREATE TABLE IF NOT EXISTS items (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                name VARCHAR
+                name VARCHAR UNIQUE
             );'
     );
     $createTable = $pdo->exec(
         'CREATE TABLE IF NOT EXISTS locations (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                name VARCHAR
+                name VARCHAR UNIQUE
             );'
     );
     $createTable = $pdo->exec(
@@ -40,7 +40,11 @@ function createTables(object $pdo): void
 function createItem(object $pdo, string $tblName, string $name): void
 {
     $query = $pdo->prepare('INSERT INTO ' . $tblName . ' (name) VALUES (?)');
-    $query->execute([$name]);
+    try {
+        $query->execute([$name]);
+    } catch (PDOException $err) {
+        echo "this already exists! \n$err\n";
+    }
 }
 
 function addItemToLocation(object $pdo, int $item, int $location, int $amount)
@@ -51,21 +55,32 @@ function addItemToLocation(object $pdo, int $item, int $location, int $amount)
     ]);
 }
 
-function listAllWhere($pdo)
+function listAllWhere(object $pdo, int $limit = 0): array | bool
 {
-    $query = $pdo->query(
-        'SELECT items.name AS itemName , item_location.amount ,locations.name AS locname FROM item_location
-        INNER JOIN items ON  item_location.item_id = items.id
-        INNER JOIN locations ON item_location.location_id = locations.id;'
-    );
+    $sql = 'SELECT items.name AS item , item_location.amount ,locations.name AS location FROM item_location
+            INNER JOIN items ON  item_location.item_id = items.id
+            INNER JOIN locations ON item_location.location_id = locations.id
+            ' . ($limit !== 0 ? " LIMIT $limit;" : ';');
+    $query = $pdo->query($sql);
     $rows = $query->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($rows as $row) {
-        print_r($row);
+    if (count($rows) <= 0) {
+        return false;
+    } else {
+        return $rows;
     }
 }
 
-// createTables($db);
-// //createItem($db, 'items', 'test4');
-// //createItem($db, 'locations', 'testplats3');
-// addItemToLocation($db, 2, 1, 7);
-// listAllWhere($db);
+createTables($db);
+createItem($db, 'items', 'mjölk1');
+createItem($db, 'locations', 'låda1');
+addItemToLocation($db, 3, 1, 1);
+$items = listAllWhere($db);
+foreach ($items as $row) {
+    print_r($row);
+}
+
+if (array_search("test2", $items)) {
+    echo "already exists";
+} else {
+    echo "we add";
+}

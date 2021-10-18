@@ -2,9 +2,11 @@
 
 // Create connection
 try {
-    $db = new PDO('sqlite:' . $dir . '/db/elephpant.db');
-} catch (Exception $err) {
-    echo "could not find database\n$err";
+    $db = new PDO('sqlite:/Users/neo/Development/GitHub/the-elephpant-in-the-room/db/elephpant.db');
+} catch (PDOException $err) {
+    echo dirname(__FILE__);
+    print_r($err->getMessage());
+    exit;
 }
 
 //creates table
@@ -24,11 +26,10 @@ function createTables(object $pdo): void
     );
     $createTable = $pdo->exec(
         'CREATE TABLE IF NOT EXISTS item_location (
-                item_id INTEGER NOT NULL,
-                amount INTEGER,
-                location_id INTEGER NOT NULL,
-                FOREIGN KEY(item_id) REFERENCES items(id)
-            );'
+            item_id INTEGER NOT NULL REFERENCES items (id),
+            location_id INTEGER NOT NULL REFERENCES locations(id),
+            amount int
+        );'
     );
 }
 createTables($db);

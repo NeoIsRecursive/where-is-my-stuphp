@@ -1,5 +1,8 @@
 <?php
 
+declare(strict_types=1);
+require_once __DIR__ . '/class-connect.php';
+
 class crud extends dbh
 {
 
@@ -44,7 +47,7 @@ class crud extends dbh
         $query->execute([$name]);
     }
 
-    public function addToLocation(string $itemName, int $locationId)
+    public function addToLocation(string $itemName, int $locationId): int
     {
         $pdo = $this->connect();
         $query = $pdo->prepare("INSERT INTO item_location (item_id,location_id) VALUES (
@@ -52,5 +55,6 @@ class crud extends dbh
         $query->execute([
             $itemName, $locationId
         ]);
+        return $query->rowCount();
     }
 }

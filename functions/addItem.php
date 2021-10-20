@@ -1,8 +1,26 @@
-<form method="POST" action="functions/createItem.php">
+<?php
+
+require_once __DIR__ . '/connect.php';
+require_once __DIR__ . '/getList.php';
+$rows = getLocations($db);
+if (!$rows) {
+    echo 'error loading in locations';
+}
+
+?>
+
+<form method="POST" action="doStuff.php">
     <input type="text" placeholder="name" name="name">
-    <input type="submit" value="create"><br>
-    <input type="radio" name="table" id="items" value="items" required>
-    <label for="items">new item</label><br>
-    <input type="radio" name="table" id="location" value="locations">
-    <label for="location">new location</label><br>
+    <select name="location" required>
+        <?php foreach ($rows as $row) :
+            $id = $row['id'];
+            $name = $row['name'];
+        ?>
+
+            <option value="<?= $id ?>"><?= $name ?></option>
+
+        <?php endforeach; ?>
+    </select>
+    <input type="submit" value="add">
+
 </form>

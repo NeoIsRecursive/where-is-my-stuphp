@@ -6,7 +6,8 @@ A program to keep track of your stuff!
 
 # Installation
 
-Add the installation instructions.
+Change path to the database in components/classes/class-connect.php
+That because it is hardcoded right now, made it easier #spentwaytomuchtimeanditdidntwork :(
 
 # Code Review
 

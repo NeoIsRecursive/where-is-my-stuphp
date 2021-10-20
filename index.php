@@ -1,4 +1,3 @@
 <?php
-require __DIR__ . '/functions/connect.php';
-require __DIR__ . '/functions/getList.php';
-$storedItems = getList($db);
+require __DIR__ . '/classes/class-connect.php';
+require __DIR__ . '/classes/class-crud.php';

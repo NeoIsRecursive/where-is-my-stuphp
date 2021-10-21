@@ -17,15 +17,14 @@ class crud extends dbh
     }
 
     //get associatve array of all items that have been assigned a location
-    public function getWhereItemsAreStored(?int $limit = 0): array
+    public function getWhereItemsAreStored(): array
     {
         $pdo = $this->connect();
         $sql = 'SELECT items.name AS item,locations.name AS location
         FROM item_location
         INNER JOIN items ON  item_location.item_id = items.id
         INNER JOIN locations ON item_location.location_id = locations.id
-        ORDER BY location
-        ' . ($limit !== 0 ? " LIMIT $limit;" : ';');
+        ORDER BY location';
         $statement = $pdo->query($sql);
         $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $rows;

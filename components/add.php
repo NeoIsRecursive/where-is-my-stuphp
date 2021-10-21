@@ -1,13 +1,30 @@
-<?php
-
-require_once __DIR__ . '/classes/class-crud.php';
-
-$pdo = new crud;
-$locations = $pdo->getLocations();
-$pdo = null;
-
-?>
 <script>
+    function printList(data) {
+        const locations = data;
+        data.forEach(location => {
+            let option = document.createElement('option');
+            option.value = location.id;
+            option.innerText = location.name;
+            document.getElementById('locationId').appendChild(option);
+        });
+    }
+
+    function listOfBabel() {
+        fetch('getWhere.php')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                const output = document.getElementById('output');
+                output.innerText = "";
+                data.forEach(row => {
+                    let text = document.createElement('p');
+                    text.innerText = row.item + " hittar du i " + row.location;
+                    output.appendChild(text);
+                });
+            });
+
+    }
+
     function output(x) {
         document.getElementById('output').innerText = 'added ' + x + ' item(s).';
     }
@@ -15,30 +32,24 @@ $pdo = null;
     //AJAX request to add data to db instead of POST because
     //with AJAX the page doesnt have to be loaded again. 
     function addToLocation() {
-        let itemName = document.getElementById('itemName').value;
-        let locationId = document.getElementById('locationId').value;
+        const itemName = document.getElementById('itemName').value;
+        const locationId = document.getElementById('locationId').value;
         console.log(itemName + locationId);
-        let xhtml = new XMLHttpRequest();
-        xhtml.onreadystatechange = () => {
-            if (xhtml.readyState == 4 && xhtml.status == 200) {
-                output(xhtml.responseText);
-            }
-        }
-        xhtml.open("GET", "addToList.php?name=" + itemName + "&&locationId=" + locationId, true);
-        xhtml.send();
+        fetch('addToList.php?name=' + itemName + '&&locationId=' + locationId)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                listOfBabel();
+            });
     }
+    fetch('getList.php')
+        .then(response => response.json())
+        .then(data => printList(data));
+    listOfBabel();
 </script>
 
 <input type="text" placeholder="name" name="name" id="itemName">
 <select name="location" required id="locationId">
-    <?php foreach ($locations as $location) :
-        $id = $location['id'];
-        $name = $location['name'];
-    ?>
-
-        <option value="<?= $id ?>"><?= $name ?></option>
-
-    <?php endforeach; ?>
 </select>
 <button onclick="addToLocation()">add</button>
 

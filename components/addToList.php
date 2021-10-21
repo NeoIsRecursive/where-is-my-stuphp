@@ -6,6 +6,12 @@ $locationId = $_REQUEST['locationId'];
 $itemName = $_REQUEST['name'];
 
 $pdo = new crud;
-$item = $pdo->newItem($itemName);
+try {
+    $item = $pdo->newItem($itemName);
+} catch (PDOException $err) {
+    if ($err->getCode() == 23000) {
+        echo "duplicate";
+    }
+}
 $add = $pdo->addToLocation($itemName, $locationId);
 echo $add;

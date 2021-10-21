@@ -24,6 +24,7 @@ class crud extends dbh
         FROM item_location
         INNER JOIN items ON  item_location.item_id = items.id
         INNER JOIN locations ON item_location.location_id = locations.id
+        ORDER BY location
         ' . ($limit !== 0 ? " LIMIT $limit;" : ';');
         $statement = $pdo->query($sql);
         $rows = $statement->fetchAll(PDO::FETCH_ASSOC);

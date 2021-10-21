@@ -9,8 +9,8 @@ $pdo = new crud;
 try {
     $item = $pdo->newItem($itemName);
 } catch (PDOException $err) {
-    if ($err->getCode() == 23000) {
-        echo "duplicate";
+    if ($err->getCode() != 23000) {
+        die(var_dump($err->errorInfo));
     }
 }
 $add = $pdo->addToLocation($itemName, $locationId);

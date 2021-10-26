@@ -1,6 +1,6 @@
 //print the location options
 function init() {
-    fetch('getList.php')
+    fetch('api/getList.php')
         .then(response => response.json())
         .then(data => {
             const locations = data;
@@ -17,7 +17,7 @@ function init() {
 
 //get the list where everything is
 function listAll() {
-    fetch('getWhere.php')
+    fetch('api/getWhere.php')
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -38,7 +38,7 @@ function addToLocation() {
     const itemName = document.getElementById('itemName').value;
     const locationId = document.getElementById('locationId').value;
     console.log(itemName + locationId);
-    fetch('addToList.php?name=' + itemName + '&&locationId=' + locationId)
+    fetch('api/addToList.php?name=' + itemName + '&&locationId=' + locationId)
         .then(response => response.json())
         .then(data => {
             console.log(data)

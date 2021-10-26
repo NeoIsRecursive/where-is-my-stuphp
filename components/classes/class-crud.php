@@ -57,4 +57,28 @@ class crud extends dbh
         ]);
         return $query->rowCount();
     }
+
+    public function createTables(): void
+    {
+        $pdo = $this->connect();
+        $createTable = $pdo->exec(
+            'CREATE TABLE IF NOT EXISTS items (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                name VARCHAR UNIQUE
+            );'
+        );
+        $createTable = $pdo->exec(
+            'CREATE TABLE IF NOT EXISTS locations (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                name VARCHAR UNIQUE
+            );'
+        );
+        $createTable = $pdo->exec(
+            'CREATE TABLE IF NOT EXISTS item_location (
+            item_id INTEGER NOT NULL REFERENCES items (id),
+            location_id INTEGER NOT NULL REFERENCES locations(id),
+            amount int
+        );'
+        );
+    }
 }

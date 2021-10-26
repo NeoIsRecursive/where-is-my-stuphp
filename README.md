@@ -6,8 +6,10 @@ A program to keep track of your stuff!
 
 # Installation
 
-Change path to the database in components/classes/class-connect.php
-That because it is hardcoded right now, made it easier #spentwaytomuchtimeanditdidntwork :(
+*[1] Go to the projects root directory.
+*[2] Run the command './setup.sh'
+*[3] after setup is done, and you chose to not run but changed your mind, run './start.sh'
+*[4] enjoy
 
 # Code Review
 

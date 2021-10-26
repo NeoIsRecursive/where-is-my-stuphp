@@ -42,6 +42,8 @@ function addToLocation() {
         .then(response => response.json())
         .then(data => {
             console.log(data)
+            alert('added ' + itemName);
+            document.getElementById('itemName').value = "";
             listAll();
         });
 }

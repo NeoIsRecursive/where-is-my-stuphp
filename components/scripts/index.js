@@ -12,10 +12,11 @@ function init() {
             });
         });
     return "succes";
+
 }
 
 //get the list where everything is
-function listOfBabel() {
+function listAll() {
     fetch('getWhere.php')
         .then(response => response.json())
         .then(data => {
@@ -41,6 +42,6 @@ function addToLocation() {
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            listOfBabel();
+            listAll();
         });
 }

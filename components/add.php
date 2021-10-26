@@ -6,7 +6,7 @@
     <button onclick="addToLocation()">add</button>
 </div>
 
-<?php include __DIR__ . '/static/func_search.php' ?>
+<?php include __DIR__ . '/static/func-search.php' ?>
 
 <div id="output" class="bg-green-50 m-1 p-3"></div>
 <script src="scripts/index.js" onload="init()"></script>

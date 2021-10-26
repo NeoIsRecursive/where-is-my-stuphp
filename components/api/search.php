@@ -1,7 +1,8 @@
 <?php
 
 declare(strict_types=1);
-require_once __DIR__ . '/classes/class-crud.php';
+require_once __DIR__ . '/classpath.php';
+require_once $path . '/classes/class-crud.php';
 
 function search(string $query): array
 {

@@ -1,6 +1,7 @@
 <?php
 
-require_once __DIR__ . '/classes/class-crud.php';
+require_once __DIR__ . '/classpath.php';
+require_once $path . '/classes/class-crud.php';
 
 $locationId = $_REQUEST['locationId'];
 $itemName = $_REQUEST['name'];

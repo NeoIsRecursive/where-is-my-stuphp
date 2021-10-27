@@ -16,11 +16,25 @@ class crud extends dbh
         return $rows;
     }
 
+    public function getItem(int $id): array
+    {
+        $pdo = $this->connect();
+        $sql = 'SELECT item_location.id, items.name as item,locations.name as location, item_location.amount
+        FROM item_location
+        INNER JOIN items ON  item_location.item_id = items.id
+        INNER JOIN locations ON item_location.location_id = locations.id
+        WHERE item_location.id = ?';
+        $statement = $pdo->prepare($sql);
+        $query = $statement->execute([$id]);
+        $row = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $row;
+    }
+
     //get associatve array of all items that have been assigned a location
     public function getWhereItemsAreStored(): array
     {
         $pdo = $this->connect();
-        $sql = 'SELECT items.name AS item,locations.name AS location
+        $sql = 'SELECT item_location.id, items.name AS item,locations.name AS location
         FROM item_location
         INNER JOIN items ON  item_location.item_id = items.id
         INNER JOIN locations ON item_location.location_id = locations.id
@@ -58,6 +72,14 @@ class crud extends dbh
         return $query->rowCount();
     }
 
+    public function removeFromList(int $rowId): int
+    {
+        $pdo = $this->connect();
+        $query = $pdo->prepare('DELETE FROM item_location WHERE id = ?');
+        $query->execute([$rowId]);
+        return $query->rowCount();
+    }
+
     public function createTables(): void
     {
         $pdo = $this->connect();
@@ -75,6 +97,7 @@ class crud extends dbh
         );
         $createTable = $pdo->exec(
             'CREATE TABLE IF NOT EXISTS item_location (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
             item_id INTEGER NOT NULL REFERENCES items (id),
             location_id INTEGER NOT NULL REFERENCES locations(id),
             amount int

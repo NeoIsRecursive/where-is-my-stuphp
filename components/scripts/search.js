@@ -9,9 +9,7 @@ function search(query) {
                 return;
             }
             data.forEach(row => {
-                let text = document.createElement('p');
-                text.innerText = row.item + " hittar du i " + row.location;
-                output.appendChild(text);
+                listItems(row);
             });
         });
 }

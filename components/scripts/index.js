@@ -4,6 +4,7 @@ function init() {
         .then(response => response.json())
         .then(data => {
             const locations = data;
+            document.getElementById('locationId').innerHTML = "";
             data.forEach(location => {
                 let option = document.createElement('option');
                 option.value = location.id;
@@ -24,12 +25,20 @@ function listAll() {
             const output = document.getElementById('output');
             output.innerText = "";
             data.forEach(row => {
-                let text = document.createElement('p');
-                text.innerText = row.item + " hittar du i " + row.location;
-                output.appendChild(text);
+                listItems(row);
             });
         });
 
+}
+
+function listItems(row) {
+    let text = document.createElement('p');
+    let btn = document.createElement('button');
+    btn.innerText = 'see more';
+    btn.setAttribute('onclick', 'getItem(' + row.id + ')');
+    text.innerText = row.item + " hittar du i " + row.location + " ";
+    text.appendChild(btn);
+    output.appendChild(text);
 }
 
 //AJAX request to add data to db instead of POST because
@@ -42,8 +51,21 @@ function addToLocation() {
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            alert('added ' + itemName);
             document.getElementById('itemName').value = "";
-            listAll();
+            //listAll();
+        });
+
+}
+function addLocation() {
+    const locationName = document.getElementById('locationName').value;
+    fetch('api/addLocation.php?name=' + locationName)
+        .then()
+        .then(() => {
+            init();
+            document.getElementById('locationName').value = '';
         });
 }
+
+
+document.getElementById('addListBtn').addEventListener('click', () => addToLocation());
+document.getElementById('locationBtn').addEventListener('click', () => addLocation());

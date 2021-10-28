@@ -1,3 +1,4 @@
 components/classes/path.php
 db/test.db
 db/elephpant.db
+.DS_Store

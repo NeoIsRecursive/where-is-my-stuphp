@@ -80,22 +80,30 @@ class crud extends dbh
         return $query->rowCount();
     }
 
+    public function updateAmount(int $id, int $amount): int
+    {
+        $pdo = $this->connect();
+        $query = $pdo->prepare('UPDATE item_location SET amount = ? WHERE id = ?');
+        $query->execute([$amount, $id]);
+        return $query->rowCount();
+    }
+
     public function createTables(): void
     {
         $pdo = $this->connect();
-        $createTable = $pdo->exec(
+        $pdo->exec(
             'CREATE TABLE IF NOT EXISTS items (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 name VARCHAR UNIQUE
             );'
         );
-        $createTable = $pdo->exec(
+        $pdo->exec(
             'CREATE TABLE IF NOT EXISTS locations (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 name VARCHAR UNIQUE
             );'
         );
-        $createTable = $pdo->exec(
+        $pdo->exec(
             'CREATE TABLE IF NOT EXISTS item_location (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             item_id INTEGER NOT NULL REFERENCES items (id),

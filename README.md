@@ -8,9 +8,10 @@ A program to keep track of your stuff!
 # Installation
 
 1. Go to the projects root directory.
-1. Run the command './setup.sh'
-1. after setup is done, and you chose to not run but changed your mind, run './start.sh'
-1. enjoy
+2. Run the command './setup.sh'
+3. after setup is done, and you chose to not run but changed your mind, run './start.sh'
+4. open browser of choice and type in the url.
+5. enjoy!
 
 # Code Review
 

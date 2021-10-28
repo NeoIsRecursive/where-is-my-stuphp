@@ -1,6 +1,6 @@
-//print the location options
+//get all locations and add them to the 'location picker'
 function init() {
-    fetch('api/getList.php')
+    fetch('components/api/getList.php')
         .then(response => response.json())
         .then(data => {
             const locations = data;
@@ -18,7 +18,7 @@ function init() {
 
 //get the list where everything is
 function listAll() {
-    fetch('api/getWhere.php')
+    fetch('components/api/getWhere.php')
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -31,6 +31,7 @@ function listAll() {
 
 }
 
+//prints out the name, location and a button that leads to more info about the item
 function listItems(row) {
     let text = document.createElement('p');
     let btn = document.createElement('button');
@@ -40,32 +41,3 @@ function listItems(row) {
     text.appendChild(btn);
     output.appendChild(text);
 }
-
-//AJAX request to add data to db instead of POST because
-//with AJAX the page doesnt have to be loaded again. 
-function addToLocation() {
-    const itemName = document.getElementById('itemName').value;
-    const locationId = document.getElementById('locationId').value;
-    console.log(itemName + locationId);
-    fetch('api/addToList.php?name=' + itemName + '&&locationId=' + locationId)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            document.getElementById('itemName').value = "";
-            //listAll();
-        });
-
-}
-function addLocation() {
-    const locationName = document.getElementById('locationName').value;
-    fetch('api/addLocation.php?name=' + locationName)
-        .then()
-        .then(() => {
-            init();
-            document.getElementById('locationName').value = '';
-        });
-}
-
-
-document.getElementById('addListBtn').addEventListener('click', () => addToLocation());
-document.getElementById('locationBtn').addEventListener('click', () => addLocation());

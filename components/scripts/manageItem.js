@@ -1,3 +1,4 @@
+//creates elements for all info about the item and buttons for updating amount and removing it
 function showItem(itemInfo) {
     const box = document.getElementById('activeItem');
     box.innerHTML = '';
@@ -25,14 +26,16 @@ function showItem(itemInfo) {
     box.appendChild(info);
 }
 
+//gets item info then shows it
 function getItem(x) {
-    fetch('api/getItem.php?id=' + x)
+    fetch('components/api/getItem.php?id=' + x)
         .then(response => response.json())
         .then(data => showItem(data[0]));
 }
 
+//removes item from location (item_location table)
 function remove(id) {
-    fetch('api/removeFromList.php?id=' + id)
+    fetch('components/api/removeFromList.php?id=' + id)
         .then(response => response.json())
         .then(data => {
             console.log("removed " + data + " lines");
@@ -40,9 +43,10 @@ function remove(id) {
         });
 }
 
+//updates the amount, amount of changed lines are returned
 function updateAmount(id) {
     let amount = document.getElementById('amount').value;
-    fetch('api/updateAmount.php?id=' + id + '&amount=' + amount)
+    fetch('components/api/updateAmount.php?id=' + id + '&amount=' + amount)
         .then(response => response.json())
         .then(data => {
             console.log("changed lines: " + data);

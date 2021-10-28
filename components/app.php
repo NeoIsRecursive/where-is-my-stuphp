@@ -1,4 +1,3 @@
-<?php require __DIR__ . '/static/head.php' ?>
 <div id="addToList" class="addToList">
     <input type="text" placeholder="item name" name="name" id="itemName" class="">
     <select name="location" required id="locationId">
@@ -15,5 +14,6 @@
 
 
 <div id="output" class=""></div>
-<script src="scripts/index.js" onload="init()"></script>
-<script src="scripts/manageItem.js"></script>
+<script src="components/scripts/getLists.js" onload="init()"></script>
+<script src="components/scripts/add.js"></script>
+<script src="components/scripts/manageItem.js"></script>

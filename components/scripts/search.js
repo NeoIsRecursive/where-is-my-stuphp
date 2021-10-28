@@ -1,5 +1,5 @@
 function search(query) {
-    fetch('api/search.php?query=' + query)
+    fetch('components/api/search.php?query=' + query)
         .then(response => response.json())
         .then(data => {
             output = document.getElementById('result');

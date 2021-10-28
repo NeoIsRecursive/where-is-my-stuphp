@@ -5,6 +5,20 @@
 
 A program to keep track of your stuff!
 
+## Possible use cases:
+
+Perfect to run on a home network, maybe you got a raspberry pi lying around or just some old computer.
+
+## OBS!!!
+
+If you are planning to run this "public", you really shouldn't. There is nothing that protects anything
+from anything, there also is not anything stopping whomever to remove something. But if you fix that then
+no problem, perhaps making so that if the request comes from your home local ip it allows, and if not it
+doesn't allow?
+
+You don't want to do anything yourself?
+well, we'll see in the future what happens. Don't hold your breath though...
+
 # Installation
 
 1. Go to the projects root directory.

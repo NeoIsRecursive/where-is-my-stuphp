@@ -3,6 +3,8 @@ echo 'removing old paths...';
 rm components/classes/path.php;
 echo 'creating new...'
 echo "<?php \$path = '$(pwd)/db/elephpant.db' ?>" >> components/classes/path.php;
+echo 'creating db directory';
+mkdir db;
 echo 'creating tables';
 php components/setup.php;
 clear;

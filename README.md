@@ -1,6 +1,7 @@
+# Where's my stuff
+
 <img src="misc/fizzybubblech.gif">
 
-# Where's my stuff
 
 A program to keep track of your stuff!
 

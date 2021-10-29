@@ -10,9 +10,11 @@ function search(string $query): array
     $items = $pdo->getWhereItemsAreStored();
     $result = [];
     foreach ($items as $row) {
-        foreach ($row as $key => $val) {
-            if ((str_contains($val, $query))) {
+        $found = false;
+        foreach ($row as $val) {
+            if (str_contains($val, $query) && $found === false) {
                 $result[] = $row;
+                $found = true;
             }
         }
     }

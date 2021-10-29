@@ -1,19 +1,29 @@
-<div id="addToList" class="addToList">
+<div id="addToList" class="addToList card">
     <input type="text" placeholder="item name" name="name" id="itemName" class="">
     <select name="location" required id="locationId">
     </select>
     <button id="addListBtn">add</button>
 </div>
-<div id="addLocation" class="addLocation">
+
+
+<div id="addLocation" class="addLocation card">
     <input type="text" placeholder="new location name" name="name" id="locationName" class="">
     <button id="locationBtn">add</button>
 </div>
-<?php include 'static/func-search.php' ?>
-
-<div id="activeItem"></div>
 
 
-<div id="output" class=""></div>
+<div id="search" class="card">
+    <input type="text" placeholder="search" id="searchBtn">
+    <button onclick="search(document.getElementById('searchBtn').value)">search</button>
+</div>
+
+<div class="items">
+    <div id="result"></div>
+    <div id="activeItem"></div>
+</div>
+
+<!-- SCRIPTS -->
 <script src="components/scripts/getLists.js" onload="init()"></script>
 <script src="components/scripts/add.js"></script>
 <script src="components/scripts/manageItem.js"></script>
+<script src="components/scripts/search.js"></script>

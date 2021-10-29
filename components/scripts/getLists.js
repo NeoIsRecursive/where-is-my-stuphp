@@ -22,7 +22,7 @@ function listAll() {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            const output = document.getElementById('output');
+            const output = document.getElementById('result');
             output.innerText = "";
             data.forEach(row => {
                 listItems(row);
@@ -35,6 +35,7 @@ function listAll() {
 function listItems(row) {
     let text = document.createElement('p');
     let btn = document.createElement('button');
+    const output = document.getElementById('result');
     btn.innerText = 'see more';
     btn.setAttribute('onclick', 'getItem(' + row.id + ')');
     text.innerText = row.item + " hittar du i " + row.location + " ";

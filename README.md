@@ -9,7 +9,6 @@ A program to keep track of your stuff!
 
 Perfect to run on a home network, maybe you got a raspberry pi lying around or just some old computer.
 
-<img src="misc/screenshot.jpg">
 
 ## OBS!!!
 
@@ -36,6 +35,8 @@ well, we'll see in the future what happens. Don't hold your breath though...
 * To show where items are, simply click the search button with no input to list them all.
 * When you have found your item and its location you can click on the see more button.
 * Now you should've got a bit more info about the item, and buttons to update the amount or delete the item from the location.
+
+<img src="misc/screenshot.jpg">
 
 # Code Review
 

@@ -19,7 +19,7 @@ if (isset($_REQUEST['name'], $_REQUEST['locationId'])) {
                 die(var_dump($err->errorInfo));
             }
         }
-        $add = $pdo->addToLocation($itemName, $locationId);
+        $add = $pdo->addToLocation($itemName, intval($locationId));
         echo $add;
     }
 }

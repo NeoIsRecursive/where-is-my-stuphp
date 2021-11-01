@@ -29,6 +29,14 @@ well, we'll see in the future what happens. Don't hold your breath though...
 4. open browser of choice and type in the url.
 5. enjoy!
 
+# How to use
+
+* Add Location by typing in the name and clicking add.
+* When a location exists, you can add items to that location by choosing it in the dropdown and then typing in the item name.
+* To show where items are, simply click the search button with no input to list them all.
+* When you have found your item and its location you can click on the see more button.
+* Now you should've got a bit more info about the item, and buttons to update the amount or delete the item from the location.
+
 # Code Review
 
 Code review written by [Emma Hansson](https://github.com/h-emma).

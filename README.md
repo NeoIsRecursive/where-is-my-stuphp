@@ -9,10 +9,12 @@ A program to keep track of your stuff!
 
 Perfect to run on a home network, maybe you got a raspberry pi lying around or just some old computer.
 
+<img src="misc/screenshot.jpg">
+
 ## OBS!!!
 
 If you are planning to run this "public", you really shouldn't. There is nothing that protects anything
-from anything, there also is not anything stopping whomever to remove something. But if you fix that then
+from anything, there also is nothing stopping whomever to remove something. But if you fix that then
 no problem, perhaps making so that if the request comes from your home local ip it allows, and if not it
 doesn't allow?
 

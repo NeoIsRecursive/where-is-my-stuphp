@@ -9,7 +9,7 @@ $id = $_REQUEST['id'];
 
 $pdo = new crud;
 try {
-    $itemInfo = $pdo->getItem($id);
+    $itemInfo = $pdo->getItem(intval($id));
 } catch (PDOException $err) {
     if ($err->getCode() != 23000) {
         die(var_dump($err->errorInfo));

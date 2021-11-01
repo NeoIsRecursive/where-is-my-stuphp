@@ -1,4 +1,4 @@
-body {
+* {
     margin:0;
     padding: 0;
     box-sizing: border-box;
@@ -9,8 +9,10 @@ body {
     background-color: #D264B6;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: 1fr 7fr;
     gap:0.5em;
+    height: calc(100vh - 2em);
+    overflow-y: hidden;
 }
 
 .card {
@@ -43,4 +45,11 @@ body {
     grid-template-columns: 1fr 1fr;
     background-color: #A480CF;
     border-radius: 0.375em;
+    max-height: 100%;
+    overflow-y: hidden;
+}
+
+#result {
+    height: 100%;
+    overflow-y: scroll;
 }

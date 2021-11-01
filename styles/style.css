@@ -6,7 +6,7 @@ body {
 
 body {
     margin: 1em;
-    background-color: aqua;
+    background-color: #D264B6;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 3fr;
@@ -14,12 +14,26 @@ body {
 }
 
 .card {
-    background-color: beige;
+    background-color: #49B6FF;
     padding:1.25em;
-    border-radius: 1.25em;
+    border-radius: 0.375em;
     font-size: medium;
     font-family: helvetica;
     display: block;
+    text-align: center;
+}
+
+.card input, .card button,.card select {
+    padding: 0.5em;
+    font-size: 1em;
+    border:none;
+    border-radius: 0.375em;
+}
+
+.card button {
+    padding-left: 1em;
+    padding-right:1em;
+    background-color: #ff499e;
 }
 
 .items {
@@ -27,6 +41,6 @@ body {
     width:100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: aquamarine;
-    border-radius: 1.25em;
+    background-color: #A480CF;
+    border-radius: 0.375em;
 }

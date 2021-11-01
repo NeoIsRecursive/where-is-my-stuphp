@@ -1,5 +1,5 @@
 <div id="addToList" class="addToList card">
-    <input type="text" placeholder="item name" name="name" id="itemName" class="">
+    <input type="text" placeholder="item name" name="name" id="itemName" autocomplete="password">
     <select name="location" required id="locationId">
     </select>
     <button id="addListBtn">add</button>
@@ -7,7 +7,7 @@
 
 
 <div id="addLocation" class="addLocation card">
-    <input type="text" placeholder="new location name" name="name" id="locationName" class="">
+    <input type="text" placeholder="new location name" name="name" id="locationName" autocomplete="password">
     <button id="locationBtn">add</button>
 </div>
 

@@ -22,11 +22,12 @@ well, we'll see in the future what happens. Don't hold your breath though...
 
 # Installation
 
-1. Go to the projects root directory.
-2. Run the command './setup.sh'
-3. after setup is done, and you chose to not run but changed your mind, run './start.sh'
-4. open browser of choice and type in the url.
-5. enjoy!
+1. Open your terminal
+2. Go to the projects root directory.
+3. Run the command './setup.sh'
+4. After setup is done, and you chose to not run but changed your mind, run './start.sh'
+5. Open browser of choice and type in the url.
+6. Enjoy!
 
 # How to use
 

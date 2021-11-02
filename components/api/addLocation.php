@@ -14,7 +14,9 @@ if (isset($_REQUEST['name'])) {
             $location = $pdo->newLocation($locationName);
         } catch (PDOException $err) {
             if ($err->getCode() != 23000) {
-                die(var_dump($err->errorInfo));
+                $location = json_encode($err);
+            } else if ($err->getCode() == 2300) {
+                //if its a dupe, then do nothing -\(*-*)/-
             }
         }
         echo $location;

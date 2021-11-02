@@ -8,7 +8,7 @@ body {
     margin: 1em;
     background-color: #D264B6;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr;
     grid-template-rows: 1fr 7fr;
     gap:0.5em;
     height: calc(100vh - 2em);

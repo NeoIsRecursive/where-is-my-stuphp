@@ -8,6 +8,8 @@ A program to keep track of your stuff!
 ## Possible use cases:
 
 Perfect to run on a home network, maybe you got a raspberry pi lying around or just some old computer.
+If you want to be able to run it on a local network, you have to start it with `php -S 0.0.0.0:port_of_your_choice`
+and then look up your local ip adress and type that in to your phone and it should appear!
 
 
 ## OBS!!!

@@ -8,6 +8,8 @@ A program to keep track of your stuff!
 ## Possible use cases:
 
 Perfect to run on a home network, maybe you got a raspberry pi lying around or just some old computer.
+If you want to be able to run it on a local network, you have to start it with `php -S 0.0.0.0:port_of_your_choice`
+and then look up your local ip adress and type that in to your phone and it should appear!
 
 
 ## OBS!!!
@@ -43,11 +45,12 @@ well, we'll see in the future what happens. Don't hold your breath though...
 
 Code review written by [Emma Hansson](https://github.com/h-emma).
 
-1. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-2. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-3. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-4. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-5. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
+1. `Overall` - The naiming of the files and folders makes it easy to understand what the data in them will execute.
+2. `components/api/classpath.php:1-3 ` - Could be good to specify in a comment that explains where the path goes.
+3. `components/classes/class-curd.php` - It’s easy to understand what the functions do when you have been written comments above them.
+4. `components/app.php` - Missing <label> for all <input>. The labels are necessary to make the site more accessible.
+5. `style.css:28` - It’s good that you keep your code DRY and that you placed several elements/classes with the same styling together.
+6. `components/api/addLocation.php:9` - The error messages are only visible in the console and not in the interface. You might consider to print the output directly to the interface for user feedback.
 
 # Testers
 

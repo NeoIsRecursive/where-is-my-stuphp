@@ -3,7 +3,7 @@
 declare(strict_types=1);
 require_once __DIR__ . '/class-connect.php';
 
-class crud extends dbh
+class Crud extends dbh
 {
 
     //get associatve array of all locations

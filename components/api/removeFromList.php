@@ -6,7 +6,7 @@ require_once $path . '/classes/class-crud.php';
 
 if (isset($_REQUEST['id'])) {
     $id = $_REQUEST['id'];
-    $pdo = new crud;
+    $pdo = new Crud;
     $removed = $pdo->removeFromList(intval($id));
     echo json_encode($removed);
 }

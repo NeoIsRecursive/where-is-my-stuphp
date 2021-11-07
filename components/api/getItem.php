@@ -7,7 +7,7 @@ require_once $path . '/classes/class-crud.php';
 
 $id = $_REQUEST['id'];
 
-$pdo = new crud;
+$pdo = new Crud;
 try {
     $itemInfo = $pdo->getItem(intval($id));
 } catch (PDOException $err) {

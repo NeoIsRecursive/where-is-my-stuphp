@@ -11,7 +11,7 @@ if (isset($_REQUEST['name'], $_REQUEST['locationId'])) {
         echo '{ "error" :"you didnt insert anything"}';
         die();
     } else {
-        $pdo = new crud;
+        $pdo = new Crud;
         try {
             $item = $pdo->newItem($itemName);
         } catch (PDOException $err) {

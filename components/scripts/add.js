@@ -3,11 +3,9 @@
 function addToLocation() {
     const itemName = document.getElementById('itemName').value;
     const locationId = document.getElementById('locationId').value;
-    console.log(itemName + locationId);
     fetch('components/api/addToList.php?name=' + itemName + '&&locationId=' + locationId)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             document.getElementById('itemName').value = "";
             //listAll();
         });

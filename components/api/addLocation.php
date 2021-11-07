@@ -9,7 +9,7 @@ if (isset($_REQUEST['name'])) {
         echo '{ "error" :"you didnt insert anything"}';
         die();
     } else {
-        $pdo = new crud;
+        $pdo = new Crud;
         try {
             $location = $pdo->newLocation($locationName);
         } catch (PDOException $err) {

@@ -56,5 +56,5 @@ Code review written by [Emma Hansson](https://github.com/h-emma).
 
 Tested by the following people:
 
-1. Jane Doe
-2. John Doe
+1. Christopher Michael
+2. Patrik Staff

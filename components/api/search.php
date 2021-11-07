@@ -6,7 +6,7 @@ require_once $path . '/classes/class-crud.php';
 
 function search(string $query): array
 {
-    $pdo = new crud;
+    $pdo = new Crud;
     $items = $pdo->getWhereItemsAreStored();
     $result = [];
     foreach ($items as $row) {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-class dbh
+class Dbh
 {
 
     protected function connect(): object

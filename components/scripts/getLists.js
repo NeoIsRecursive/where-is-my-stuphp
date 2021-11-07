@@ -21,7 +21,6 @@ function listAll() {
     fetch('components/api/getWhere.php')
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             const output = document.getElementById('result');
             output.innerText = "";
             data.forEach(row => {

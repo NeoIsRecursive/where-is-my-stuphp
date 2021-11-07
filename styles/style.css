@@ -53,3 +53,12 @@ body {
     height: 100%;
     overflow-y: scroll;
 }
+
+.link {
+    position: absolute;
+    right:1.25em;
+    padding: 0.375em;
+    background-color: aqua;
+    border-radius: 0.375em;
+    bottom: 1.25em;
+}

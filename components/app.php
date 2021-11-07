@@ -20,6 +20,7 @@
 <div class="items">
     <div id="result"></div>
     <div id="activeItem"></div>
+    <a class="link" href="https://github.com/NeoIsRecursive/where-is-my-stuphp#how-to-use" target="_blank">how to use</a>
 </div>
 
 <!-- SCRIPTS -->
